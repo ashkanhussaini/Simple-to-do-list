@@ -1,21 +1,28 @@
-# To-Do List App
+# To-Do List App — Pro Version
 
-A simple, clean to-do list web app built with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools — just the fundamentals.
+An advanced version of my original [To-Do List App](#), rebuilt with vanilla HTML, CSS, and JavaScript — no frameworks. This version adds categories, priority levels, due dates, and smarter sorting/filtering on top of the original CRUD functionality.
+
+> **Note:** This is an evolution of an earlier, simpler to-do list project. I rebuilt it to practice more advanced JavaScript concepts: multi-criteria filtering, sorting algorithms, and date handling.
 
 ## Features
 
-- Add new tasks
-- Mark tasks as complete / incomplete
-- Delete individual tasks
-- Filter tasks by **All / Active / Completed**
-- Clear all completed tasks at once
+**Core**
+- Add, complete, and delete tasks
+- Data persists via `localStorage`
 - Live count of remaining tasks
-- Data persists in the browser via `localStorage` — your tasks are still there after you close the tab
+
+**New in Pro version**
+- 📁 **Categories** — General, Work, Study, Personal
+- 🚦 **Priority levels** — Low / Medium / High, each with a distinct visual tag
+- 📅 **Due dates** — assign a deadline to any task
+- ⏰ **Overdue detection** — tasks past their due date are automatically flagged and filterable
+- 🔍 **Combined filtering** — filter by status (All/Active/Completed/Overdue) AND category at the same time
+- ↕️ **Sorting** — sort by newest, priority, or due date
 
 ## Tech Stack
 
 - HTML5
-- CSS3 (Flexbox)
+- CSS3 (Flexbox, responsive layout)
 - JavaScript (ES6+, no frameworks or libraries)
 - Browser `localStorage` API for persistence
 
@@ -29,28 +36,27 @@ No installation needed — it's a static site.
    ```
 2. Open `index.html` in your browser.
 
-That's it.
-
 ## Project Structure
 
 ```
 todo-list/
 ├── index.html      # Markup
 ├── style.css       # Styling
-├── script.js       # App logic (CRUD + localStorage)
+├── script.js       # App logic (CRUD + filters + sorting + localStorage)
 └── README.md
 ```
 
 ## What I Learned / Practiced
 
-- DOM manipulation without a framework
-- Event delegation (for dynamically rendered list items)
-- Persisting state with `localStorage`
-- Basic state management patterns (filter, render cycle)
+- Combining multiple independent filters (status + category) on the same dataset
+- Implementing custom sort logic (by priority weight, by date)
+- Working with the JavaScript `Date` object to detect overdue tasks
+- Structuring more complex application state without a framework
+- Writing more modular, maintainable vanilla JS as the app grows in complexity
 
 ## Possible Future Improvements
 
 - Edit existing tasks inline
 - Drag-and-drop reordering
-- Due dates and priority levels
+- Recurring tasks
 - Sync with a backend (e.g., a simple REST API)

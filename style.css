@@ -6,7 +6,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: linear-gradient(135deg, #1f2546, #3a3f8f);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -15,10 +15,10 @@ body {
 
 .app {
   width: 100%;
-  max-width: 480px;
+  max-width: 560px;
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
   padding: 32px;
 }
 
@@ -30,23 +30,35 @@ body {
 .app__header h1 {
   margin: 0;
   font-size: 28px;
-  color: #2d2d44;
+  color: #1f2546;
+}
+
+.app__badge {
+  font-size: 13px;
+  background: #ffb648;
+  color: #1f2546;
+  padding: 3px 10px;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin-left: 6px;
 }
 
 .app__subtitle {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   color: #8a8aa0;
   font-size: 14px;
 }
 
 .todo-form {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f4;
 }
 
 .todo-form__input {
-  flex: 1;
   padding: 12px 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -56,14 +68,32 @@ body {
 }
 
 .todo-form__input:focus {
-  border-color: #6e8efb;
+  border-color: #3a3f8f;
+}
+
+.todo-form__row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.todo-form__select,
+.todo-form__date {
+  flex: 1;
+  min-width: 110px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 13px;
+  background: #fff;
+  color: #444;
 }
 
 .todo-form__button {
   padding: 12px 18px;
   border: none;
   border-radius: 8px;
-  background: #6e8efb;
+  background: #3a3f8f;
   color: #fff;
   font-size: 15px;
   cursor: pointer;
@@ -71,61 +101,129 @@ body {
 }
 
 .todo-form__button:hover {
-  background: #5a7af0;
+  background: #2e3273;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
 }
 
 .filters {
   display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  flex: 1;
+  flex-wrap: wrap;
 }
 
 .filters__btn {
-  flex: 1;
-  padding: 8px 0;
+  padding: 7px 12px;
   border: none;
   border-radius: 8px;
   background: #f1f1f5;
   color: #555;
-  font-size: 13px;
+  font-size: 12px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 
 .filters__btn.is-active {
-  background: #6e8efb;
+  background: #3a3f8f;
   color: #fff;
+}
+
+.category-filter,
+.sort-select {
+  padding: 7px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #555;
+  background: #fff;
 }
 
 .todo-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  max-height: 360px;
+  max-height: 400px;
   overflow-y: auto;
 }
 
 .todo-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  padding: 10px 4px;
+  padding: 12px 6px;
   border-bottom: 1px solid #f0f0f4;
 }
 
 .todo-item__checkbox {
   width: 18px;
   height: 18px;
+  margin-top: 3px;
   cursor: pointer;
-  accent-color: #6e8efb;
+  accent-color: #3a3f8f;
   flex-shrink: 0;
 }
 
-.todo-item__text {
+.todo-item__content {
   flex: 1;
+  min-width: 0;
+}
+
+.todo-item__text {
   font-size: 15px;
-  color: #2d2d44;
+  color: #1f2546;
   word-break: break-word;
+  display: block;
+}
+
+.todo-item__meta {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.tag--category {
+  background: #e8eafc;
+  color: #3a3f8f;
+}
+
+.tag--priority-low {
+  background: #e6f7ee;
+  color: #1f9d55;
+}
+
+.tag--priority-medium {
+  background: #fff4e0;
+  color: #c97a00;
+}
+
+.tag--priority-high {
+  background: #fde8e8;
+  color: #d0392c;
+}
+
+.tag--due {
+  background: #f1f1f5;
+  color: #666;
+}
+
+.tag--overdue {
+  background: #fde8e8;
+  color: #d0392c;
 }
 
 .todo-item.is-completed .todo-item__text {
@@ -142,6 +240,7 @@ body {
   padding: 4px 8px;
   border-radius: 6px;
   transition: background 0.2s;
+  flex-shrink: 0;
 }
 
 .todo-item__delete:hover {

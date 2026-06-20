@@ -32,7 +32,7 @@ No installation needed — it's a static site.
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/todo-list.git
+   git clone https://github.com/ashkanhussaini/todo-list.git
    ```
 2. Open `index.html` in your browser.
 
